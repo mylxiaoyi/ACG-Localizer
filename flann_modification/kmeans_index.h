@@ -717,7 +717,7 @@ public:
       std::list< std::pair< KMeansNodePtr, int > > fifo_ids;
       fifo_ids.clear();
       
-      fifo_ids.push_back( std::make_pair< KMeansNodePtr, int >( root, 0 ) );
+      fifo_ids.push_back( std::pair< KMeansNodePtr, int >( root, 0 ) );
       
       while (!fifo_ids.empty()) {
         std::pair< KMeansNodePtr, int > node;
@@ -728,7 +728,7 @@ public:
         {
           if( node.first->childs != 0 ) {
             for (int i=0; i<branching; ++i) {
-              fifo_ids.push_back( std::make_pair< KMeansNodePtr, int >( node.first->childs[i], node.second * branching + i + 1 ) );
+              fifo_ids.push_back( std::pair< KMeansNodePtr, int >( node.first->childs[i], node.second * branching + i + 1 ) );
             }
           }
           else {
